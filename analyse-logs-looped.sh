@@ -17,18 +17,20 @@ echo "$LOG_FILES"
 
 
 for LOG_FILE in $LOG_FILES; do
-    echo -e "\nsearching ${ERROR_PATTERNS[0]} logs $LOG_FILE file"
-    grep ${ERROR_PATTERNS[0]} "$LOG_FILE"
 
-    echo -e "\nNumber of ${ERROR_PATTERNS[0]}logs found in $LOG_FILE"
-    grep -c "${ERROR_PATTERNS[0]}" "$LOG_FILE"
+    echo -e "\n"
+    echo "==================================================================="
+    echo "$LOG_FILE"
+    echo "==================================================================="
 
-    echo -e "\nNumber of ${ERROR_PATTERNS[1]} logs found in $LOG_FILE"
-    grep -c "${ERROR_PATTERNS[1]}" "$LOG_FILE"
+    for PATTERN in ${ERROR_PATTERNS[@]}; do
 
-    echo -e "\nNumber of ${ERROR_PATTERNS[2]} logs found in $LOG_FILE"
-    grep -c "${ERROR_PATTERNS[2]}" "$LOG_FILE"
 
-    echo -e "\n${ERROR_PATTERNS[2]} logs in $LOG_FILE file"
-    grep "${ERROR_PATTERNS[2]}" "$LOG_FILE"
+        echo -e "\nsearching $PATTERN logs $LOG_FILE file"
+        grep "$PATTERN" "$LOG_FILE"
+
+        echo -e "\nNumber of $PATTERN logs found in $LOG_FILE"
+        grep -c "$PATTERN" "$LOG_FILE"
+
+    done
 done
