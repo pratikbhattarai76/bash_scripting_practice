@@ -58,6 +58,8 @@ Jun  1 04:40:16 server-prod-01 kernel: [59416.789012] [ERROR] EDAC MC0: 1 CE mem
 Number of ERROR logs found in /home/pratik/devops/bash_scripting_practice/logs/system.log
 13
 
+High number of ERROR errors found in /home/pratik/devops/bash_scripting_practice/logs/system.log
+
 searching FATAL logs /home/pratik/devops/bash_scripting_practice/logs/system.log file
 Jun  1 01:45:01 server-prod-01 kernel: [49411.123456] [FATAL] EXT4-fs error (device sda1): ext4_journal_check_start:56: Detected aborted journal
 Jun  1 01:45:02 server-prod-01 kernel: [49412.234567] [FATAL] EXT4-fs (sda1): Remounting filesystem read-only
