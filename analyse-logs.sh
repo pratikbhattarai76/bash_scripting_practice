@@ -1,25 +1,25 @@
 #!/bin/bash
 
+LOG_DIR="/home/pratik/devops/bash_scripting_practice/logs"
+APP_LOG_FILE="application.log"
+SYS_LOG_FILE="system.log"
 echo "Analysing Log Files"
 echo "==================="
 
 echo -e "\nList of log files updated in last 24 hours"
-find . -name "*.log" -mtime -1
+find $LOG_DIR -name "*.log" -mtime -1
 
 echo -e "\nsearching ERROR logs in application.log file"
-grep "ERROR" logs/application.log
+grep "ERROR" "$LOG_DIR/$APP_LOG_FILE" 
 
 echo -e "\nNumber of ERROR logs found in application.log"
-grep -c "ERROR" logs/application.log
-
-echo -e "\nNumber of FATAL logs found in application.log"
-grep -c "FATAL" logs/application.log
+grep -c "ERROR" "$LOG_DIR/$APP_LOG_FILE"
 
 echo -e "\nNumber of FATAL logs found in system.log"
-grep -c "FATAL" logs/system.log
+grep -c "FATAL" "$LOG_DIR/$SYS_LOG_FILE"
 
 echo -e "\nNumber of CRITICAL logd found in system.log"
-grep -c "CRITICAL" logs/system.log
+grep -c "CRITICAL" "$LOG_DIR/$SYS_LOG_FILE"
 
 echo -e "\nCritical logs in system.log file"
-grep "CRITICAL" logs/system.log
+grep "CRITICAL" "$LOG_DIR/$SYS_LOG_FILE"
